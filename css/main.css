@@ -383,8 +383,23 @@ main > *:focus {
     box-shadow: 1px 1px 2px -1px rgba(255, 175, 0, 0.7);
 }
 
+@keyframes line-move-effect {
+    0% {
+        background-position: 0em 1em;
+    }
+    100% {
+        background-position: 10em 1em;
+    }
+}
+
 main > * a:focus {
+    outline: 0;
+    animation: line-move-effect 20s infinite;
     color: #ffaf00;
+    text-decoration: none;
+    background: linear-gradient(90deg, #ffaf00 66%, transparent 0) repeat-x;
+    background-size: 1rem 3px;
+    background-position: 0 1em;
 }
 
 main > * img {
@@ -408,6 +423,8 @@ main > article figcaption footer {
 }
 
 /* ----------------------- */
+/* ----------------------- */
+/* Finish your order */
 /* rating */
 @keyframes jumpingsmiley {
     0% {
@@ -421,23 +438,34 @@ main > article figcaption footer {
     }
 }
 
-nav form fieldset {
-    display: flex;
-    position: relative;
+main > nav progress {
+    width: 100%;
+}
+
+main > nav ol {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+main > nav form {
     padding: 1rem;
     background-color: #ebebeb;
     border-radius: 0.3rem;
+    border: 1px solid #e1e1e1;
 }
 
-nav form fieldset legend {
-    margin-top: 1rem;
+main > nav form fieldset {
+    display: flex;
+    position: relative;
+}
+
+main > nav form fieldset legend {
+    margin-bottom: 1rem;
     width: 100%;
     font-size: 1.3em;
 }
 
 input[name="rating"] {
-    height: 0;
-    width: 0;
     overflow: hidden;
     opacity: 0;
     position: absolute;
