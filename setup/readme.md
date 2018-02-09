@@ -1,5 +1,7 @@
 # Setup
 
+[Return back to main readme](https://github.com/IIYAMA12/cssttr)
+
 ## Preferences Safari
 * Open Safari preferences.
 * Go to advanced.
@@ -27,3 +29,6 @@ Click on `voiceOver`
 
 Check the checkbox: `Enable VoiceOver`
 ![Safari preferences](readme_content/voiceOver3.png)
+
+
+[Return back to main readme](https://github.com/IIYAMA12/cssttr)
