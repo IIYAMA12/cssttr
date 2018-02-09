@@ -5,7 +5,7 @@
 * Go to advanced.
 * Check the checkbox: `Press tab to highlight each item on a webpage`
 
-This will allow you to stop at links and navigation links with your tab key. I assume people with disabilities do enable this by default.
+This will allow you to stop at links and navigation links with your tab key. I assume people with specific disabilities do enable this by default.
 
 ![Safari preferences](readme_content/safariVoorkeuren.png)
 
