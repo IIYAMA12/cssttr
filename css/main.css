@@ -1,3 +1,44 @@
+/* 6.32/6.33
+* De-emphasize
+* by blurring & dimming
+*/
+dialog {
+    position: fixed;
+    width: 50vmin;
+    top: 0;
+    margin: 50vh auto 0;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+}
+
+dialog:focus-within {
+    border: 1px solid rgba(255, 175, 0, 0.5);
+    box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.32);
+    z-index: 100;
+}
+
+dialog:focus {
+    outline: 0;
+    border: 1px solid #ffaf00;
+    box-shadow: 1px 1px 2px -1px rgba(255, 175, 0, 0.7);
+}
+
+dialog:not(:focus-within) {
+    visibility: hidden;
+}
+
+dialog:focus-within ~ * {
+    transition: filter 0.1s;
+    filter: blur(2px) contrast(0.4) brightness(0.4);
+    opacity: 0.4;
+}
+
+dialog h1, dialog p {
+    margin-bottom: 1rem;
+}
+
 /* Gebruik css varianble: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables */
 /*
 
@@ -357,18 +398,19 @@ main > * h1 {
     margin-bottom: 1rem;
 }
 
-main > *:focus {
-    outline: 0;
-}
-
 main > *:focus-within {
     border: 1px solid rgba(255, 175, 0, 0.5);
     box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.32);
 }
 
 main > *:focus {
+    outline: 0;
     border: 1px solid #ffaf00;
     box-shadow: 1px 1px 2px -1px rgba(255, 175, 0, 0.7);
+}
+
+main > * img {
+    width: 100%;
 }
 
 @keyframes line-move-effect {
@@ -380,7 +422,7 @@ main > *:focus {
     }
 }
 
-main > * a:focus {
+main a:focus, dialog a:focus {
     outline: 0;
     animation: line-move-effect 20s infinite;
     color: #ffaf00;
@@ -388,10 +430,6 @@ main > * a:focus {
     background: linear-gradient(90deg, #ffaf00 66%, transparent 0) repeat-x;
     background-size: 1rem 3px;
     background-position: 0 1em;
-}
-
-main > * img {
-    width: 100%;
 }
 
 /* ----------------------- */
@@ -437,6 +475,7 @@ main > nav ol {
 
 main > nav form {
     padding: 1rem;
+    margin-bottom: 1rem;
     background-color: #ebebeb;
     border-radius: 0.3rem;
     border: 1px solid #e1e1e1;
