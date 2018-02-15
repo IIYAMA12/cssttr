@@ -40,7 +40,6 @@ body:focus-within button {
 ### Debug viewport
 Debugging of the viewport using the `content` property made it a lot easier to build it with a responsive layout.
 
-
 ```CSS
 #debug-viewport:after {
     content: "mobile";
@@ -66,4 +65,22 @@ Debugging of the viewport using the `content` property made it a lot easier to b
 
 ```HTML
     <p id="debug-viewport"></p>
+```
+
+### Attribute selectors
+We normally use a lot of classes to style things. But an already existing attribute selector will do the job also just fine. I am not sure what the performance is of an attribute selector. So I might just variate between an `attribute selector` and a `tagName with attribute selector attached to it`. To me a tagName with an attribute selector should be faster, but I have yet to find that out.
+
+Attribute selector alone
+```CSS
+[aria-label="loader"] {
+    /*    ...    */
+}
+```
+
+
+TagName + attribute selector
+```CSS
+div[aria-label="loader"] {
+    /*    ...    */
+}
 ```
