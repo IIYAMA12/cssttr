@@ -1,7 +1,7 @@
 
 # Components
 
-## setup
+## Setup
 Before you open this website, please setup your machine for the best experience.
 
 ## Website
@@ -101,8 +101,9 @@ It really surprised me that css supported custom easing. The `cubic-bezier / sin
 ```CSS
     /* Use in animation */
     animation: fly 1s cubic-bezier(0, 0.33, 0.78, 0.27) infinite;
-    /**/
+    /*                                                          */
 ```
+
 
 ### The power of linear-gradient + background-size
 Linear-gradient's with background-size can create a sort of patterns.
@@ -111,6 +112,7 @@ This example below will start with drawing 50px space on the left side. After th
 ```CSS
     linear-gradient(90deg, #d3d3d3 25px, transparent 0);
     background-size: 50px 100%;
-    /**/
+    /*                                                          */
 ```
+
 ![Pattern](readme_content/pattern.png)
