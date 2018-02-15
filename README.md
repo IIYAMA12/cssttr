@@ -11,6 +11,7 @@ Before you open this website, please setup your machine for the best experience.
 
 [Website](https://iiyama12.github.io/cssttr/styleguide.html)
 
+
 ## Tab navigation support
 Each component on the page is reachable with the tab key. When and component has been selected, it will show an orange border around it. This border will also be shown (but dimmed) when a sub-component has been focused down.
 
@@ -68,9 +69,9 @@ Debugging of the viewport using the `content` property made it a lot easier to b
 ```
 
 ### Attribute selectors
-We normally use a lot of classes to style things. But an already existing attribute selector will do the job also just fine. I am not sure what the performance is of an attribute selector. So I might just variate between an `attribute selector` and a `tagName with attribute selector attached to it`. To me a tagName with an attribute selector should be faster, but I have yet to find that out.
+We normally use a lot of classes to style things. But an already existing attribute selector will do the job also just fine. I am not sure what the performance is of an attribute selector. So I might just variate between an `attribute selector` and a `tagName with attribute selector attached to it`. To me a tagName with an attribute selector should be faster in my opinion, but I have yet to find that out if that is really true.
 
-Attribute selector alone
+Attribute selector
 ```CSS
 [aria-label="loader"] {
     /*    ...    */
@@ -84,3 +85,21 @@ div[aria-label="loader"] {
     /*    ...    */
 }
 ```
+
+### cubic-bezier / single-transition-timing-function
+It really surprised me that css supported custom easing. The `cubic-bezier / single-transition-timing-function` css function can be used to change the two handles which are creating the curve in between an easing. Tools like this [cubic-bezier.com](http://cubic-bezier.com/) will help you customise them exactly how you want. Unfortunately there is no way in adding more points in the easing with this function. You will need to add multiple easing's into one transition, in order to achieve this.
+
+[single-transition-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/single-transition-timing-function)
+
+```CSS
+    /* syntax */
+    cubic-bezier(initial-handle-X, initial-handle-Y, final-handle-X, final-handle-Y)
+    cubic-bezier(x1, y1, x2, y2)
+```
+
+```CSS
+    /* Use in animation */
+    animation: fly 1s cubic-bezier(0, 0.33, 0.78, 0.27) infinite;
+
+```
+test
