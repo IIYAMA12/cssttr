@@ -18,7 +18,7 @@
 
 
     <!-- place components or patterns here -->
-    <header>
+    <header role="banner"> <!-- banner: http://knowledge.onsubject.com/2011/02/06/html-role-attributes/ -->
         <h1>Living Styleguide</h1>
 
         <!-- The use of aria-labelledby: https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/navigation.html  -->
@@ -52,7 +52,7 @@
         <h1>This is an dialog element. It is like a popup window.</h1>
         <p>When the `open` attribute is added, the dialog will show itself.</p>
         <p>Unfortunately the javascript state control functions are only supported on the browser Chrome. <time datetime="2018-02-13">13-2-2017</time> See <a href="https://developer.mozilla.org/nl/docs/Web/HTML/Element/dialog">documentation</a>. For now it is done with a single class on the body.</p>
-        <!-- <button type="button" name="dialog-close">Close dialog</button> -->
+        <button type="button" disabled>I am disabled</button>
     </dialog>
 
     <main>
@@ -210,7 +210,7 @@
 
         </form>
     </main>
-
+    <div aria-label="loader">Loading...</div>
 
     <script src="index.js" charset="utf-8"></script>
 </body>
