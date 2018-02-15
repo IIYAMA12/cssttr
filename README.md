@@ -94,12 +94,23 @@ It really surprised me that css supported custom easing. The `cubic-bezier / sin
 ```CSS
     /* syntax */
     cubic-bezier(initial-handle-X, initial-handle-Y, final-handle-X, final-handle-Y)
+
     cubic-bezier(x1, y1, x2, y2)
 ```
 
 ```CSS
     /* Use in animation */
     animation: fly 1s cubic-bezier(0, 0.33, 0.78, 0.27) infinite;
-
+    /**/
 ```
-test
+
+### The power of linear-gradient + background-size
+Linear-gradient's with background-size can create a sort of patterns.
+This example below will start with drawing 50px space on the left side. After that it will draw a 25px coloured line. This pattern will repeat itself, because the repeat css property is enabled by default.
+
+```CSS
+    linear-gradient(90deg, #d3d3d3 25px, transparent 0);
+    background-size: 50px 100%;
+    /**/
+```
+![Pattern](readme_content/pattern.png)
