@@ -127,11 +127,14 @@ input[type="email"]:focus, input[type="password"]:focus {
 
 /* Extending the clickable area */
 button {
-    border-radius: 1rem;
+    border-radius: 1.3rem;
     border: none;
     background-color: #282828;
     color: white;
-    height: 2rem;
+    min-height: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    line-height: 1rem;
     border: 1em solid transparent;
     background-clip: padding-box;
     box-sizing: content-box;
