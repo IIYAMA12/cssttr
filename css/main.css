@@ -270,6 +270,9 @@ body > header nav > ul {
         background-color: #ffaf00;
         box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.2);
     }
+    body > header nav > ul > li:last-child a {
+        border-radius: 0 0 0 0.3rem;
+    }
 }
 
 @media (min-width: 40rem) {
@@ -277,10 +280,6 @@ body > header nav > ul {
         display: flex;
         height: 3rem;
     }
-}
-
-body > header nav > ul > li:last-child a {
-    border-radius: 0 0 0 0.3rem;
 }
 
 body > header li {
@@ -312,7 +311,7 @@ body > header a {
     }
 }
 
-body > header a:focus {
+body > header a:focus, body > header a:hover {
     background-color: white;
     color: black;
     outline: 0;
@@ -323,10 +322,10 @@ body > header a:focus {
         transition: margin 0.25s;
         margin: 0 1rem;
     }
-    body > header li li:focus-within {
+    body > header li li:focus-within, body > header li li:hover {
         margin: 0;
     }
-    body > header li li:focus-within a {
+    body > header li li:focus-within a, body > header li li:hover a {
         padding: 0.5rem 0 0.5rem 1.5rem;
     }
 }
@@ -336,23 +335,17 @@ body > header a:focus {
         position: relative;
         line-height: calc(3rem - 2rem);
         box-sizing: border-box;
-        height: 3rem;
         font-size: 1em;
     }
     body > header li a {
         padding: 1rem 1.5rem;
     }
-    body > header li a:focus {
+    body > header li a:focus, body > header li a:hover {
         background-color: #ffaf00;
         color: white;
     }
     body > header li ul {
         border-radius: 0 0 0.3rem 0.3rem;
-    }
-    body > header li ul:last-of-type a {
-        border-radius: 0 0 0.3rem 0.3rem;
-    }
-    body > header li ul {
         visibility: hidden;
         display: none;
         background-color: #ffaf00;
@@ -361,12 +354,14 @@ body > header a:focus {
         width: 100%;
         box-shadow: -2px 3px 5px 0px rgba(0, 0, 0, 0.2);
     }
+    body > header li ul li:last-of-type a {
+        border-radius: 0 0 0.3rem 0.3rem;
+    }
     body > header li li a {
-        padding: 0.5rem;
         display: block;
         height: 100%;
     }
-    body > header li li a:focus {
+    body > header li li a:focus, body > header li li a:hover {
         background-color: white;
         color: #ffaf00;
     }
