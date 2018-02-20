@@ -25,6 +25,7 @@ setTimeout(function () {
 }, 4000);
 
 
+// input fields feedback delay
 const inputFields = document.querySelectorAll("[type=\"email\"], [type=\"password\"]");
 
 const enableInputFeedback = function (e) {
