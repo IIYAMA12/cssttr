@@ -1,3 +1,15 @@
+:root {
+    --main-color: #ffaf00;
+    --main-color-shadow: rgba(255, 175, 0, 0.7);
+    --main-color-gray1: #e1e1e1;
+    --secondary-color: #282828;
+    --disabled-color: #a8a8a8;
+    --global-border-radius: 0.3rem;
+    --global-background-color: #F5F5F5;
+    --global-box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.32);
+}
+
+/* CSS varianbles: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables */
 body {
     font-family: Ampersand, sans-serif;
 }
@@ -13,7 +25,7 @@ dialog {
     margin: 50vh auto 0;
     transform: translateY(-50%);
     background-color: white;
-    border-radius: 0.3rem;
+    border-radius: var(--global-border-radius);
     box-sizing: border-box;
     background: #7e7e7e;
     background-image: linear-gradient(90deg, #d3d3d3 23px, transparent 0), linear-gradient(90deg, #a8a8a8 11px, transparent 0), linear-gradient(90deg, #bdbdbd 41px, transparent 0);
@@ -29,7 +41,7 @@ dialog:focus-within {
 dialog:focus {
     outline: 0;
     border: 1px solid #ffaf00;
-    box-shadow: 1px 1px 2px -1px rgba(255, 175, 0, 0.7);
+    box-shadow: 1px 1px 2px -1px var(--main-color-shadow);
 }
 
 dialog:not(:focus-within) {
@@ -46,7 +58,6 @@ dialog h1, dialog p {
     margin-bottom: 1rem;
 }
 
-/* Gebruik css varianble: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables */
 /*
 
     https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors
@@ -82,26 +93,27 @@ h1 {
 
 h1 a {
     font-family: inherit;
+    color: inherit;
 }
 
 textarea {
     margin: 0;
-    border-radius: 0.3rem;
-    border: 1px solid #e1e1e1;
+    border-radius: var(--global-border-radius);
+    border: 1px solid var(--main-color-gray1);
     padding: 0.5rem;
 }
 
 textarea:focus {
-    border: 1px solid #ffaf00;
+    border: 1px solid var(--main-color);
 }
 
 input[type="email"], input[type="password"] {
-    border-radius: 0.3rem;
-    border: 1px solid #e1e1e1;
+    border-radius: var(--global-border-radius);
+    border: 1px solid var(--main-color-gray1);
 }
 
 input[type="email"]:focus, input[type="password"]:focus {
-    border: 1px solid #ffaf00;
+    border: 1px solid var(--main-color);
 }
 
 /* FRAME-BY-FRAME ANIMATIONS */
@@ -112,6 +124,7 @@ input[type="email"]:focus, input[type="password"]:focus {
 }
 
 [aria-label="loader"] {
+    pointer-events: none;
     position: fixed;
     top: 0;
     margin: 50vh 0 0 50vw;
@@ -133,7 +146,7 @@ input[type="email"]:focus, input[type="password"]:focus {
 button {
     border-radius: 1.3rem;
     border: none;
-    background-color: #282828;
+    background-color: var(--secondary-color);
     color: white;
     min-height: 1rem;
     padding: 0.5rem;
@@ -145,6 +158,7 @@ button {
     margin-left: -1em;
     margin-top: -1em;
     cursor: pointer;
+    box-shadow: 0 0 0 0px transparent inset, 0 0em 0em 0em transparent;
 }
 
 button:focus {
@@ -153,12 +167,13 @@ button:focus {
 
 button:focus, button:hover {
     color: white;
-    background-color: #ffaf00;
+    background-color: var(--main-color);
+    transition: box-shadow 0.7s, background-color 0.3s;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0.1em 0.2em -0.05em rgba(0, 0, 0, 0.5);
 }
 
 button[aria-disabled="true"], button[disabled], button:disabled {
-    background-color: #a8a8a8;
+    background-color: var(--disabled-color);
 }
 
 /* 6.29 Picking the right cursor */
@@ -167,8 +182,8 @@ button[aria-disabled="true"], button[disabled], button:disabled {
 }
 
 input[type="email"], input[type="password"] {
-    border-radius: 0.3rem;
-    border: 1px solid #e1e1e1;
+    border-radius: var(--global-border-radius);
+    border: 1px solid var(--main-color-gray1);
     padding: 0.5em;
 }
 
@@ -185,14 +200,37 @@ input[type="email"]:valid[used], input[type="email"]:not(:valid)[used], input[ty
     background-size: 1.7rem;
 }
 
+@keyframes line-move-effect {
+    0% {
+        background-position: 0em 1.4rem;
+    }
+    100% {
+        background-position: 10rem 1.4rem;
+    }
+}
+
+a:focus, a:hover {
+    outline: 0;
+    animation: line-move-effect 20s infinite;
+    color: var(--main-color);
+    text-decoration: none;
+    background: linear-gradient(90deg, var(--main-color) 66%, transparent 0) repeat-x;
+    background-size: 1rem 1px;
+    background-position: 0 1.4rem;
+}
+
+nav a:focus, nav a:hover {
+    background: initial;
+}
+
 /* body, header with navigation */
 body {
     height: 100vh;
-    background-color: #F5F5F5;
+    background-color: var(--global-background-color);
 }
 
 body > header {
-    background-color: #282828;
+    background-color: var(--secondary-color);
     color: white;
     height: 3rem;
     width: 100vw;
@@ -234,6 +272,10 @@ body > header > h1 {
     }
 }
 
+body > header nav {
+    height: inherit;
+}
+
 @media (max-width: 40rem) {
     body > header nav h1 {
         text-align: right;
@@ -252,26 +294,27 @@ body > header > h1 {
 
 @media (max-width: 40rem) {
     body > header nav > ul {
-        display: none;
-        visibility: hidden;
+        transition: transform 1s;
+        transform: translateX(100%);
+        pointer-events: none;
     }
     body > header nav:focus-within > ul, body > header nav:focus > ul {
-        display: block !important;
-        visibility: visible !important;
+        transform: translateX(0%);
+        pointer-events: initial;
     }
 }
 
 body > header nav > ul {
-    border-radius: 0 0 0 0.3rem;
+    border-radius: 0 0 0 var(--global-border-radius);
 }
 
 @media (max-width: 40rem) {
     body > header nav > ul {
-        background-color: #ffaf00;
+        background-color: var(--main-color);
         box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.2);
     }
     body > header nav > ul > li:last-child a {
-        border-radius: 0 0 0 0.3rem;
+        border-radius: 0 0 0 var(--global-border-radius);
     }
 }
 
@@ -341,21 +384,21 @@ body > header a:focus, body > header a:hover {
         padding: 1rem 1.5rem;
     }
     body > header li a:focus, body > header li a:hover {
-        background-color: #ffaf00;
+        background-color: var(--main-color);
         color: white;
     }
     body > header li ul {
-        border-radius: 0 0 0.3rem 0.3rem;
+        border-radius: 0 0 var(--global-border-radius) var(--global-border-radius);
         visibility: hidden;
         display: none;
-        background-color: #ffaf00;
+        background-color: var(--main-color);
         left: 0;
         position: absolute;
         width: 100%;
         box-shadow: -2px 3px 5px 0px rgba(0, 0, 0, 0.2);
     }
     body > header li ul li:last-of-type a {
-        border-radius: 0 0 0.3rem 0.3rem;
+        border-radius: 0 0 var(--global-border-radius) var(--global-border-radius);
     }
     body > header li li a {
         display: block;
@@ -363,7 +406,7 @@ body > header a:focus, body > header a:hover {
     }
     body > header li li a:focus, body > header li li a:hover {
         background-color: white;
-        color: #ffaf00;
+        color: var(--main-color);
     }
     body > header li:focus-within ul {
         visibility: visible;
@@ -377,6 +420,53 @@ body > header a {
 }
 
 /* ----------------------- */
+@keyframes follow-the-image {
+    0% {
+        transform: scale(1) translate(0%, 0%);
+    }
+    10% {
+        transform: scale(0.8) translate(0%, 0%);
+    }
+    20% {
+        transform: scale(0.6) translate(30%, 30%);
+    }
+    30% {
+        transform: scale(0.4) translate(-40%, -40%);
+    }
+    40% {
+        transform: scale(0.2) translate(40%, 40%);
+    }
+    50% {
+        transform: scale(0.1) translate(100%, 30%);
+    }
+    60% {
+        transform: scale(0.07) translate(100%, 100%);
+    }
+    70% {
+        transform: scale(0.07) translate(-120%, -120%);
+    }
+    73% {
+        transform: scale(0.07) translate(-120%, -120%);
+    }
+    80% {
+        transform: scale(0.06) translate(50%, 50%);
+    }
+    85% {
+        transform: scale(0.06) translate(70%, 70%);
+    }
+    90% {
+        transform: scale(0.03) translate(50%, 50%);
+    }
+    100% {
+        transform: scale(1) translate(0%, 0%);
+    }
+}
+
+img:hover, img:focus {
+    border: 1px solid #ffaf00;
+    animation: follow-the-image 20s cubic-bezier(0, 0.33, 0.78, 0.27) infinite;
+}
+
 /* main and content wrappers */
 main {
     box-sizing: border-box;
@@ -429,16 +519,83 @@ main {
 
 main > * {
     border-radius: 0;
-    transition: border-radius 2s;
+    transition: border-radius 2s, transform 2s, opacity 2s;
     padding: 1rem;
     background-color: #ffffff;
     border: 1px solid #EBEBEB;
     box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.32);
+    transition: box-shadow 0.7s;
+}
+
+@keyframes content-load-animation-right-to-left {
+    0% {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes content-load-animation-left-to-right {
+    0% {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes content-load-animation-bottom-to-top {
+    0% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 80rem) {
+    main > *:nth-child(even) {
+        animation: content-load-animation-right-to-left 2s cubic-bezier(0.22, 0.51, 0.46, 0.76);
+    }
+    main > *:nth-child(odd):not(:last-child) {
+        animation: content-load-animation-left-to-right 2s cubic-bezier(0.22, 0.51, 0.46, 0.76);
+    }
+    main > *:nth-child(odd):last-child {
+        animation: content-load-animation-bottom-to-top 2s cubic-bezier(0.22, 0.51, 0.46, 0.76);
+    }
+}
+
+@media (min-width: 80rem) {
+    main > * {
+        animation: content-load-animation-right-to-left 2s cubic-bezier(0.22, 0.51, 0.46, 0.76);
+    }
+    main > *:nth-child(3n+1) {
+        animation: content-load-animation-left-to-right 2s cubic-bezier(0.22, 0.51, 0.46, 0.76);
+    }
 }
 
 @media (min-width: 40rem) {
     main > * {
-        border-radius: 0.3rem;
+        border-radius: var(--global-border-radius);
     }
 }
 
@@ -463,36 +620,16 @@ main > * h1 {
 
 main > *:focus-within {
     border: 1px solid rgba(255, 175, 0, 0.5);
-    box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.32);
+    box-shadow: 4px 4px 5px -1px rgba(0, 0, 0, 0.3);
 }
 
 main > *:focus {
     outline: 0;
     border: 1px solid #ffaf00;
-    box-shadow: 1px 1px 2px -1px rgba(255, 175, 0, 0.7);
 }
 
 main > * img {
     width: 100%;
-}
-
-@keyframes line-move-effect {
-    0% {
-        background-position: 0em 1.4rem;
-    }
-    100% {
-        background-position: 10rem 1.4rem;
-    }
-}
-
-main a:focus, dialog a:focus {
-    outline: 0;
-    animation: line-move-effect 20s infinite;
-    color: #ffaf00;
-    text-decoration: none;
-    background: linear-gradient(90deg, #ffaf00 66%, transparent 0) repeat-x;
-    background-size: 1rem 1px;
-    background-position: 0 1.4rem;
 }
 
 /* ----------------------- */
@@ -515,18 +652,6 @@ main > article figcaption footer {
 /* ----------------------- */
 /* Finish your order */
 /* rating */
-@keyframes jumpingsmiley {
-    0% {
-        transform: translateY(0rem);
-    }
-    50% {
-        transform: translateY(-0.5rem);
-    }
-    100% {
-        transform: translateY(0rem);
-    }
-}
-
 main > nav progress {
     width: 100%;
     height: 1rem;
@@ -540,21 +665,40 @@ main > nav progress {
 }
 
 main > nav progress::-webkit-progress-value {
-    background-color: #282828;
+    background-color: var(--secondary-color);
 }
 
 main > nav ol {
     display: flex;
     grid-template-columns: auto;
     flex-wrap: wrap;
+    margin: 2rem 0 2rem 0;
+}
+
+main > nav ol:focus-within li, main > nav ol:hover li {
+    height: 2rem;
+    line-height: 2rem;
+}
+
+main > nav ol:focus-within li:focus-within, main > nav ol:focus-within li:hover, main > nav ol:hover li:focus-within, main > nav ol:hover li:hover {
+    height: 3rem;
+    line-height: 3rem;
 }
 
 main > nav ol li {
+    transition: height 0.5s cubic-bezier(0.89, 0.03, 0.89, 0.71), line-height 0.5s cubic-bezier(0.89, 0.03, 0.89, 0.71);
     flex-grow: 1;
     height: 3rem;
     line-height: 3rem;
     text-align: center;
+    border: 1px solid var(--main-color-gray1);
+    border-radius: var(--global-border-radius);
     display: block;
+    margin-bottom: 1rem;
+}
+
+main > nav ol li:last-of-type {
+    margin-bottom: 0;
 }
 
 @media (max-width: 40rem) {
@@ -569,12 +713,18 @@ main > nav ol li {
     }
 }
 
+main > nav ol a {
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
 main > nav form {
     padding: 1rem;
     margin-bottom: 1rem;
     background-color: #ebebeb;
-    border-radius: 0.3rem;
-    border: 1px solid #e1e1e1;
+    border-radius: var(--global-border-radius);
+    border: 1px solid var(--main-color-gray1);
 }
 
 main > nav form fieldset {
@@ -586,6 +736,30 @@ main > nav form fieldset legend {
     margin-bottom: 1rem;
     width: 100%;
     font-size: 1.3em;
+}
+
+@keyframes jumping-smiley {
+    0% {
+        transform: translateY(0rem) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-0.5rem) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0rem) rotate(0deg);
+    }
+}
+
+@keyframes jumping-smiley-text {
+    40% {
+        transform: translateY(0rem) rotate(0deg);
+    }
+    50% {
+        transform: translateY(0.5rem) rotate(30deg);
+    }
+    40% {
+        transform: translateY(0rem) rotate(0deg);
+    }
 }
 
 input[name="rating"] {
@@ -603,12 +777,16 @@ input[name="rating"] + label {
     height: 4rem;
 }
 
-input[name="rating"]:focus + label {
-    color: #ffaf00;
+input[name="rating"]:focus + label, input[name="rating"]:hover + label {
+    color: var(--main-color);
 }
 
-input[name="rating"]:focus + label svg {
-    animation: jumpingsmiley 1.5s cubic-bezier(0, 0.33, 0.78, 0.27) infinite;
+input[name="rating"]:focus + label, input[name="rating"]:hover + label {
+    animation: jumping-smiley-text 1.5s cubic-bezier(0, 0.33, 0.78, 0.27) infinite;
+}
+
+input[name="rating"]:focus + label svg, input[name="rating"]:hover + label svg {
+    animation: jumping-smiley 1.5s cubic-bezier(0, 0.33, 0.78, 0.27) infinite;
 }
 
 input[name="rating"]:focus + label, input[name="rating"]:checked + label, input[name="rating"]:hover + label {
@@ -629,7 +807,7 @@ section > ol {
     background-color: #ebebeb;
     border: 1px solid #e1e1e1;
     margin-bottom: 1em;
-    border-radius: 0.3rem;
+    border-radius: var(--global-border-radius);
 }
 
 section > ol li {
@@ -668,6 +846,19 @@ section > form {
     grid-column-gap: 5%;
 }
 
+section > form:focus-within textarea {
+    height: 5rem !important;
+}
+
+@media (max-width: 40rem), (min-width: 80rem) {
+    section > form textarea {
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 10;
+    }
+}
+
 @media (min-width: 40rem) and (max-width: 80rem) {
     section > form {
         grid-column-gap: 1rem;
@@ -682,6 +873,7 @@ section > form {
     section > form textarea {
         grid-column-start: 1;
         grid-row-start: 2;
+        grid-row-end: 2;
     }
     section > form button {
         grid-column-start: 2;
@@ -700,7 +892,10 @@ section > form label {
 }
 
 section > form textarea {
-    resize: vertical;
+    height: 2rem !important;
+    transition: height 0.3s;
+    resize: none;
+    box-sizing: border-box;
 }
 
 /* ----------------------- */
@@ -736,18 +931,20 @@ main > form[method="post"] [type="checkbox"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border: 1px solid #e1e1e1;
-    border-radius: 0.3rem;
+    border: 1px solid var(--main-color-gray1);
+    border-radius: var(--global-border-radius);
     margin-bottom: 1rem;
+    background-color: white;
+    transition: background-color 0.4s;
 }
 
 main > form[method="post"] [type="checkbox"]:checked {
-    background: #ffaf00 url("../images/checked.svg") no-repeat;
+    background: var(--main-color) url("../images/checked.svg") no-repeat;
     border: none;
 }
 
 main > form[method="post"] [type="checkbox"]:focus + label {
-    color: #ffaf00;
+    color: var(--main-color);
 }
 
 main > form[method="post"] [type="checkbox"] + label {
@@ -762,9 +959,10 @@ main > form[method="post"] [type="submit"] {
     grid-column-start: 1;
     grid-column-end: 3;
     margin-bottom: 1rem;
+    width: calc(100% - 1rem);
 }
 
 main > form[method="post"]:not(:valid) [type="submit"] {
-    background-color: #a8a8a8;
+    background-color: var(--disabled-color);
     cursor: not-allowed !important;
 }
