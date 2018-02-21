@@ -36,19 +36,20 @@ Each component on the page is reachable with the tab key. When and component has
 #### Focus sub component
 ![Focus sub component](readme_content/focusSubComponent.png)
 
-## Responsive
-As it is unclear which device the user is going to use, the webpage is responsive for mobile, tablet and mobile.
-
-## Tab navigation
-The tabindex attribute will give you the ability to tab through this content.
+The `tabindex` attribute will give you the ability to tab through this content.
 
 ```HTML
     <article tabindex="0">
     </article>
 ```
+[Tabindex](https://developer.mozilla.org/nl/docs/Web/HTML/Global_attributes/tabindex)
 
 * `tab`: Go forwards.
 * `tab` + `shift`: Go backwards.
+
+## Responsive
+As it is unclear which device the user is going to use, the webpage is responsive for mobile, tablet and mobile.
+
 
 
 ## Aria label support for voice-over
@@ -57,6 +58,7 @@ Using an `aria-label` to improve the default voice-over. This label will be used
     <article aria-label="This picture has a title">
     </article>
 ```
+[Aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)
 
 
 
