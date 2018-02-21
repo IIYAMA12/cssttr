@@ -151,3 +151,60 @@ This example below will start with drawing 50px space on the left side. After th
 ```
 
 ![Pattern](readme_content/pattern.png)
+
+
+### Use of inherit
+I didn't use the inherit property since the beginning of this course. It is didn't feel very powerful and handy. But after using it for a while, I noticed that it was useful is some ways I didn't think of.
+
+The `inherit` property forces the element to inherit a property from it's parent. Some elements do this automatic, others do need a little push.
+
+The first use of it, I did find in a similar piece of code like this:
+```HTML
+<ul>
+    <li><a></a></li>
+    <li><a></a></li>
+    <li><a></a></li>
+</ul>
+```
+
+After styling the height of the `li`'s, I also had to set the height of the `a`'s. Which looked like something like this:
+```CSS
+li, a {
+    height: 3rem;
+}
+a {
+    display: block; /* is inline element by default */
+}
+```
+
+Now I can just inherit it, which is one selector less.
+
+```CSS
+li {
+    height: 3rem;
+}
+a {
+    display: block; /* is inline element by default */
+    height: inherit;
+}
+```
+
+
+For fonts it is also nice to have. The `a` tag seems not to inherit the font from a `h1`.
+```CSS
+h1 {
+    font-family: header-font, sans-serif;
+}
+```
+
+```HTML
+<h1><a>This is a link</a></h1>
+```
+
+This will fix that:
+
+```CSS
+a {
+    font-family: inherit;
+}
+```
