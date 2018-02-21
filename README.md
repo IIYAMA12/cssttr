@@ -4,8 +4,13 @@
 ## Intro
 This website has been build for Marijn. A person which I have never met and the only thing I know about him, is that he seems to be very good programmer. And as he does his job, his motor disability doesn't make his work easier. I am really impressed how he is capable using the shitty websites of today.
 
-When a person is not able to use the mouse, there is always the keyboard as backup. Almost every personal computer has one, so if I am going to build something which has to be supported globally, then that would be the first thing to be full supported.
+When a person is not able to use the mouse, there is always the keyboard as backup. Almost every personal computer has one and even all tab devices do have a keyboard on the screen. If I am going to build something which has to be supported globally(person/device), then that would be the first thing to be full supported.
 
+After adding the basic support for tab navigation, I noticed that voice-over support can be seen as a required extension of it. The visual disability is a very good the reason to use tab navigation in combination with voice-over.
+
+Build-in support:
+* Keyboard navigation
+* Voice-over (experimental on Safari)
 
 
 ## Setup
@@ -33,6 +38,27 @@ Each component on the page is reachable with the tab key. When and component has
 
 ## Responsive
 As it is unclear which device the user is going to use, the webpage is responsive for mobile, tablet and mobile.
+
+## Tab navigation
+The tabindex attribute will give you the ability to tab through this content.
+
+```HTML
+    <article tabindex="0">
+    </article>
+```
+
+* `tab`: Go forwards.
+* `tab` + `shift`: Go backwards.
+
+
+## Aria label support for voice-over
+Using an `aria-label` to improve the default voice-over. This label will be used as a part of the audio output.
+```HTML
+    <article aria-label="This picture has a title">
+    </article>
+```
+
+
 
 ## Best practices
 
