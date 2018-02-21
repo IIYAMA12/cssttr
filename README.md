@@ -36,7 +36,7 @@ Each component on the page is reachable with the tab key. When and component has
 #### Focus sub component
 ![Focus sub component](readme_content/focusSubComponent.png)
 
-The `tabindex` attribute will give you the ability to tab through this content.
+The `tabindex` attribute will give you the ability to tab through content of choice.
 
 ```HTML
     <article tabindex="0">
