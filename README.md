@@ -1,6 +1,13 @@
 
 # CSSTTR
 
+## Intro
+This website has been build for Marijn. A person which I have never met and the only thing I know about him, is that he seems to be very good programmer. And as he does his job, his motor disability doesn't make his work easier. I am really impressed how he is capable using the shitty websites of today.
+
+When a person is not able to use the mouse, there is always the keyboard as backup. Almost every personal computer has one, so if I am going to build something which has to be supported globally, then that would be the first thing to be full supported.
+
+
+
 ## Setup
 Before you open this website, please setup your machine for the best experience.
 
