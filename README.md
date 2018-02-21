@@ -4,9 +4,9 @@
 ## Intro
 This website has been build for Marijn. A person which I have never met and the only thing I know about him, is that he seems to be very good programmer. And as he does his job, his motor disability doesn't make his work easier. I am really impressed how he is capable using the shitty websites of today.
 
-When a person is not able to use the mouse, there is always the keyboard as backup. Almost every personal computer has one and even all tab devices do have a keyboard on the screen. If I am going to build something which has to be supported globally(person/device), then that would be the first thing to be full supported.
+When a person is not able to use the mouse, there is always the keyboard as backup. Almost every personal computer has one and even all tab devices do have a keyboard on the screen. If I am going to build something which has to be supported globally(person/device), then that would be the first thing to be fully supported.
 
-After adding the basic support for tab navigation, I noticed that voice-over support can be seen as a required extension of it. The visual disability is a very good the reason to use tab navigation in combination with voice-over.
+After adding the basic support for tab navigation, I noticed that voice-over support can be seen as a required extension of it. Visual disability is a very good the reason to use tab navigation in combination with voice-over.
 
 Build-in support:
 * Keyboard navigation
@@ -104,7 +104,7 @@ Debugging of the viewport using the `content` property made it a lot easier to b
 ```
 
 ### Attribute selectors
-We normally use a lot of classes to style things. But an already existing attribute selector will do the job also just fine. I am not sure what the performance is of an attribute selector. So I might just variate between an `attribute selector` and a `tagName with attribute selector attached to it`. To me a tagName with an attribute selector should be faster in my opinion, but I have yet to find that out if that is really true.
+We normally use a lot of classes to style things. But an already existing attribute selector will do the job also just fine. I am not sure what the performance is of an attribute selector. So I might just variate between an `attribute selector` and a `tagName with attribute selector attached to it`. To me a tagName with an attribute selector should be faster in my opinion, but I have yet to find out the truth.
 
 Attribute selector
 ```CSS
@@ -158,7 +158,7 @@ I didn't use the inherit property since the beginning of this course. It is didn
 
 The `inherit` property forces the element to inherit a property from it's parent. Some elements do this automatic, others do need a little push.
 
-The first use of it, I did find in a similar piece of code like this:
+The first use of it, it was a similar piece of code like this:
 ```HTML
 <ul>
     <li><a></a></li>
@@ -190,7 +190,7 @@ a {
 ```
 
 
-For fonts it is also nice to have. The `a` tag seems not to inherit the font from a `h1`.
+For fonts it is also nice to use. The `a` tag seems not to inherit the font from a `h1`.
 ```CSS
 h1 {
     font-family: header-font, sans-serif;
