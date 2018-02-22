@@ -20,7 +20,8 @@ body {
 */
 dialog {
     position: fixed;
-    width: 50vmin;
+    max-width: 90vw;
+    max-width: min-content;
     top: 0;
     margin: 50vh 0 0 50vw;
     transform: translateY(-50%);
@@ -58,6 +59,7 @@ dialog:focus-within ~ * {
 
 dialog h1, dialog p {
     margin-bottom: 1rem;
+    width: inherit;
 }
 
 /*
